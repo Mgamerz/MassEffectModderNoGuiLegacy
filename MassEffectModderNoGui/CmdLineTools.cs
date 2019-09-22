@@ -1984,6 +1984,10 @@ namespace MassEffectModder
                         mipmap.storageType = Texture.StorageTypes.extZlib;
                     if (mipmap.storageType == Texture.StorageTypes.pccLZO)
                         mipmap.storageType = Texture.StorageTypes.pccZlib;
+                    if (mipmap.storageType == Texture.StorageTypes.extUnc)
+                    {
+                        mipmap.storageType = GameData.gameType == MeType.ME2_TYPE ? Texture.StorageTypes.extLZO : Texture.StorageTypes.extZlib;
+                    }
 
                     if (arcTexture != null && mipmap.storageType != arcTexture.mipMapsList[m].storageType)
                     {
